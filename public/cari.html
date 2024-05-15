@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Binar Car Rental</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/public/css/sytles.css" />
+    <link rel="stylesheet" href="/public/css/owl.carousel.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.css" integrity="sha512-OTcub78R3msOCtY3Tc6FzeDJ8N9qvQn1Ph49ou13xgA9VsH9+LRxoFU6EqLhW4+PKRfU+/HReXmSZXHEkpYoOA==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.min.css" />
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+
+    <style>
+        * {
+            font-family: Helvetica, sans-serif;
+            scroll-behavior: smooth;
+        }
+    </style>
+
+</head>
+
+<body>
+    <!--Navbar-->
+    <nav class="navbar navbar-expand-lg fixed-top col bg-body-tertiary">
+        <div class="container">
+            <a class="navbar-brand fs-4" href="#"><img src="/public/images/img/logo.png" alt="" /></a>
+            <button class="navbar-toggler shadow-none border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
+                        Binar Car
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                        <li class="nav-item">
+                            <a class="nav-link mx-lg-2 active" aria-current="page" href="#">Our Service</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link mx-lg-2" href="#">Why Use</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link mx-lg-2" href="#">Testimonial</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link mx-lg-2" href="#">Fax</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="btn btn-success" href="#" role="button">Register</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero  -->
+    <div class="relative flex flex-col-reverse">
+        <div class="relative md:absolute w-full -bottom-10 z-40 flex justify-center items-center">
+            <div class="bg-white shadow-md rounded-0 md:rounded-lg flex w-full md:w-3/4 flex-col md:flex-row gap-8 p-4">
+                <div class="flex flex-col justify-between w-full gap-2 text-xs">
+                    <p class="text-slate-700">Tipe Driver</p>
+                    <!-- <div class="custom-select" style="width: 200px"> -->
+                    <select onchange="onInputChange()" class="w-full border text-slate-400 border-slate-300 rounded-sm h-9 px-2" name="driver" id="driver">
+              <option class="h-9 hover:bg-green-100" value="">
+                
+              </option>
+              <option class="h-9 hover:bg-green-100" value="Dengan Supir">
+                Dengan Supir
+              </option>
+              <option class="h-9 hover:bg-green-100" value="Lepas Kunci">
+                Tanpa Supir (Lepas Kunci)
+              </option>
+            </select>
+                    <!-- </div> -->
+                </div>
+                <div class="flex flex-col justify-between w-full gap-2 text-xs">
+                    <p class="text-slate-700">Tanggal</p>
+                    <input onchange="onInputChange()" type="date" class="w-full border text-slate-400 border-slate-300 rounded-sm h-9 px-2" name="date" id="date" />
+                </div>
+                <div class="flex flex-col justify-between w-full gap-2 text-xs">
+                    <p class="text-slate-700">Waktu Jemput/Ambil</p>
+                    <select onchange="onInputChange()" class="w-full border text-slate-400 border-slate-300 rounded-sm h-9 px-2" name="time" id="time">
+              <option class="h-9 w-full hover:bg-green-100" value="8">
+                <div class="flex w-full flex-row justify-between">
+                  <p>08.00</p>
+                  <p>WIB</p>
+                </div>
+              </option>
+              <option class="h-9 w-full hover:bg-green-100" value="9">
+                <div class="flex w-full flex-row justify-between">
+                  <p>09.00</p>
+                  <p>WIB</p>
+                </div>
+              </option>
+              <option class="h-9 w-full hover:bg-green-100" value="10">
+                <div class="flex w-full flex-row justify-between">
+                  <p>10.00</p>
+                  <p>WIB</p>
+                </div>
+              </option>
+              <option class="h-9 w-full hover:bg-green-100" value="11">
+                <div class="flex w-full flex-row justify-between">
+                  <p>11.00</p>
+                  <p>WIB</p>
+                </div>
+              </option>
+            </select>
+                </div>
+                <div class="flex flex-col justify-between w-full gap-2 text-xs">
+                    <p class="text-slate-700">Jumlah Penumpang (optional)</p>
+                    <input type="text" placeholder="Jumlah Penumpang" class="w-full border text-slate-400 border-slate-300 rounded-sm h-9 px-2" name="capacity" id="capacity" />
+                </div>
+                <div class="flex flex-col gap-2 justify-end">
+                    <button id="button-search" onclick="search()" class="bg-green-500 h-9 w-max px-4 text-white rounded-sm">
+              Cari Mobil
+            </button>
+                </div>
+            </div>
+        </div>
+        <section id="hero" class="h-max md:h-[504px] bg-[#F1F3FF] flex flex-col md:flex-row pl-4 pr-0 md:pr-4 md:pr-0 md:pl-[136px] pt-[84px]">
+            <div id="main" class="flex flex-col w-full md:w-1/2 justify-center gap-4">
+                <p class="font-bold text-[36px]">
+                    Sewa & Rental Mobil Terbaik di kawasan (Lokasimu)
+                </p>
+                <p>
+                    Selamat datang di Binar Car Rental. Kami menyediakan mobil kualitas terbaik dengan harga terjangkau. Selalu siap melayani kebutuhanmu untuk sewa mobil selama 24 jam.
+                </p>
+                <a href="/cars" class="text-[14px] font-bold bg-[#5CB85F] text-white rounded-[2px] w-max flex items-center justify-center px-3 py-2">Mulai Sewa Mobil</a
+          >
+        </div>
+        <div class="static md:relative w-full md:w-1/2">
+          <img
+            src="./public/assets/img_car.png"
+            alt="mercedes"
+            class="flex md:hidden bottom-0 z-10"
+          />
+          <img
+            src="./public/assets/img_mercedes.png"
+            alt="mercedes"
+            class="hidden md:flex absolute bottom-0 z-10"
+          />
+          <div
+            class="bg-[#0D28A6] hidden md:flex absolute h-1/2 w-full rounded-tl-[60px] bottom-0"
+          ></div>
+        </div>
+      </section>
+    </div>
+    <!-- End Hero -->
+
+    <!-- Cars  -->
+    <div class="w-full pt-16 flex justify-center">
+      <div
+        class="grid items-stretch w-full px-4 md:px-0 md:w-3/4 text-sm grid-cols-1 md:grid-cols-3 gap-4"
+      ></div>
+    </div>
+    <!-- End Cars  -->
+
+    <!-- Footer -->
+    <section
+      id="Footer"
+      class="max-w-6xl mx-auto w-full flex flex-col px-4 md:px-0 md:flex-row gap-4 md:gap-[86px] pt-[60px] md:pt-[150px] mb-[100px]"
+    >
+      <div class="flex flex-col font-light text-sm gap-4">
+        <p>Jalan Suroyo No. 161 Mayangan Kota Probolonggo 672000</p>
+        <p>binarcarrental@gmail.com</p>
+        <p>081-233-334-808</p>
+      </div>
+      <div class="flex flex-col font-normal text-sm gap-4">
+        <p class="font-[300]">Our services</p>
+        <p class="font-[300]">Why Us</p>
+        <p class="font-[300]">Testimonial</p>
+        <p class="font-[300]">FAQ</p>
+      </div>
+      <div class="flex flex-col font-light text-sm gap-4">
+        <p>Connect with us</p>
+        <div class="flex flex-row gap-4">
+          <a href="#">
+            <img src="./public/assets/icon_facebook.svg" alt="icon_facebook" />
+          </a>
+                <a href="#">
+                    <img src="./public/assets/icon_instagram.svg" alt="icon_instagram" />
+                </a>
+                <a href="#">
+                    <img src="./public/assets/icon_twitter.svg" alt="icon_twitter" />
+                </a>
+                <a href="#">
+                    <img src="./public/assets/icon_mail.svg" alt="icon_mail" />
+                </a>
+                <a href="#">
+                    <img src="./public/assets/icon_twitch.svg" alt="icon_twitch" />
+                </a>
+            </div>
+    </div>
+    <div class="flex flex-col font-light text-sm gap-4">
+        <p>Copyright Binar 2022</p>
+        <div class="flex flex-row bg-[#0D28A6] w-[100px] h-[34px]"></div>
+    </div>
+    </section>
+    <!-- End Footer -->
+
+    <!-- Script -->
+    <script src="./public/scripts/binar.js"></script>
+
+    <script src="./public/scripts/component.js"></script>
+    <script src="./public/scripts/car.js"></script>
+    <script src="./public/scripts/filter.js"></script>
+
+    <script type="text/javascript">
+        const generateDropdown = () => {
+            var x, i, j, l, ll, selElmnt, a, b, c;
+
+            x = document.getElementsByClassName("custom-select");
+            l = x.length;
+            for (i = 0; i < l; i++) {
+                selElmnt = x[i].getElementsByTagName("select")[0];
+                ll = selElmnt.length;
+
+                a = document.createElement("DIV");
+                a.setAttribute("class", "select-selected");
+                a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
+                x[i].appendChild(a);
+
+                b = document.createElement("DIV");
+                b.setAttribute("class", "select-items select-hide");
+                for (j = 1; j < ll; j++) {
+
+                    c = document.createElement("DIV");
+                    c.innerHTML = selElmnt.options[j].innerHTML;
+                    c.addEventListener("click", function(e) {
+
+                        var y, i, k, s, h, sl, yl;
+                        s = this.parentNode.parentNode.getElementsByTagName("select")[0];
+                        sl = s.length;
+                        h = this.parentNode.previousSibling;
+                        for (i = 0; i < sl; i++) {
+                            if (s.options[i].innerHTML == this.innerHTML) {
+                                s.selectedIndex = i;
+                                h.innerHTML = this.innerHTML;
+                                y =
+                                    this.parentNode.getElementsByClassName("same-as-selected");
+                                yl = y.length;
+                                for (k = 0; k < yl; k++) {
+                                    y[k].removeAttribute("class");
+                                }
+                                this.setAttribute("class", "same-as-selected");
+                                break;
+                            }
+                        }
+                        h.click();
+                    });
+                    b.appendChild(c);
+                }
+                x[i].appendChild(b);
+                a.addEventListener("click", function(e) {
+
+                    e.stopPropagation();
+                    closeAllSelect(this);
+                    this.nextSibling.classList.toggle("select-hide");
+                    this.classList.toggle("select-arrow-active");
+                });
+            }
+
+            function closeAllSelect(elmnt) {
+
+                var x,
+                    y,
+                    i,
+                    xl,
+                    yl,
+                    arrNo = [];
+                x = document.getElementsByClassName("select-items");
+                y = document.getElementsByClassName("select-selected");
+                xl = x.length;
+                yl = y.length;
+                for (i = 0; i < yl; i++) {
+                    if (elmnt == y[i]) {
+                        arrNo.push(i);
+                    } else {
+                        y[i].classList.remove("select-arrow-active");
+                    }
+                }
+                for (i = 0; i < xl; i++) {
+                    if (arrNo.indexOf(i)) {
+                        x[i].classList.add("select-hide");
+                    }
+                }
+            }
+
+            document.addEventListener("click", closeAllSelect);
+        };
+
+        // generateDropdown();
+
+        const driver = document.getElementById("driver").value;
+        const date = document.getElementById("date").value;
+        const time = document.getElementById("time").value;
+        const capacity = document.getElementById("capacity").value;
+
+
+        const buttonSearch = document.getElementById("button-search");
+        buttonSearch.disabled = true;
+        const onInputChange = () => {
+            const driver = document.getElementById("driver").value;
+            console.log(driver);
+            const date = document.getElementById("date").value;
+            const time = document.getElementById("time").value;
+            const buttonSearch = document.getElementById("button-search");
+            if (driver && date && time) {
+                buttonSearch.disabled = false;
+            } else {
+                buttonSearch.disabled = true;
+            }
+        };
+        console.log("asd");
+
+        const swiper = new Swiper(".swiper", {
+            direction: "horizontal",
+            loop: true,
+            slidesPerView: 2,
+            centeredSlides: true,
+            spaceBetween: 32,
+
+            pagination: {
+                el: ".swiper-pagination",
+            },
+
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+
+            scrollbar: {
+                el: ".swiper-scrollbar",
+            },
+        });
+
+        const swiperMobile = new Swiper(".swiperMobile", {
+            direction: "horizontal",
+            loop: true,
+            slidesPerView: 1,
+            centeredSlides: true,
+            spaceBetween: 32,
+
+            pagination: {
+                el: ".swiper-pagination",
+            },
+
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+
+            scrollbar: {
+                el: ".swiper-scrollbar",
+            },
+        });
+
+        nextCarousel = () => {
+            swiperMobile.slideNext();
+            swiper.slideNext();
+        };
+        prevCarousel = () => {
+            swiperMobile.slidePrev();
+            swiper.slidePrev();
+        };
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const buttonCloseSidebar = document.querySelector("#close-sidebar");
+            const buttonOpenSidebar = document.querySelector("#open-sidebar");
+            const sidebar = document.querySelector(".sidebar");
+
+            buttonCloseSidebar.addEventListener("click", function() {
+                sidebar.classList.remove("right-0");
+                sidebar.classList.add("-right-full");
+            });
+            buttonOpenSidebar.addEventListener("click", function() {
+                sidebar.classList.add("right-0");
+                sidebar.classList.remove("-right-full");
+            });
+        });
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const accordionHeaders = document.querySelectorAll(
+                ".accordion-header button"
+            );
+
+            accordionHeaders.forEach((header) => {
+                header.addEventListener("click", function() {
+                    const accordionItem = this.closest(".accordion-item");
+                    const accordionBody =
+                        accordionItem.querySelector(".accordion-body");
+
+                    accordionBody.classList.toggle("hidden");
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
